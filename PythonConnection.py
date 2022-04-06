@@ -1,6 +1,6 @@
 import mysql.connector;
 AWSPath='lab1-012499474.cg6o7wykltqr.us-east-2.rds.amazonaws.com' #AWS Endpoint
-conn= mysql.connector.connect(host=AWSPath, db='Lab1_V1', user='root', password='rezaxc007');
+conn= mysql.connector.connect(host=AWSPath, db='Mousivand_SMD', user='root', password='rezaxc007');
 
 # This function takes actor name and lists his movies 
 def searchByActor (actorName):
@@ -8,7 +8,7 @@ def searchByActor (actorName):
     command='select Title from Lab1_V1.Movie where Actors like \'%'+ actorName+'%\' ;'  
     cursor.execute(command)
     rows = cursor.fetchall()
-    print("Total uumber of movies played by "+actorName+" in our archive is",cursor.rowcount)
+    print("The number of available movies played by "+actorName+" is",cursor.rowcount)
     for row in rows:
         print(row)
     conn.commit()
